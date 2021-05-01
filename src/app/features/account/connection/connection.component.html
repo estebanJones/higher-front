@@ -1,0 +1,18 @@
+<!-- Default form login -->
+<form class="text-center border border-light p-5 formulaire_connection" [formGroup]="connexionFormulaire" (ngSubmit)="connexion()">
+    <p class="h2 mb-4 title">CONNECTION</p>
+    <!-- Email -->
+    <input type="email" name="username" class="form-control mb-4" placeholder="E-mail" formControlName="username">
+    <!-- Password -->
+    <input type="password" name="password" class="form-control mb-4" placeholder="Password" formControlName="password">
+    <div class="d-flex justify-content-around">
+      <div>
+        <mdb-checkbox [default]="true">Se souvenir de moi</mdb-checkbox>
+      </div>
+      <div>
+        <a href="">Mot de passe oublié ?</a>
+      </div>
+    </div>
+    <button mdbBtn color="info"  class="my-4" type="submit">Se connecter</button>
+  </form>
+  <!-- Default form login -->

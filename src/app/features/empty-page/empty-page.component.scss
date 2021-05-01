@@ -1,0 +1,29 @@
+.container {
+  align-items: center;
+  width: 100vh;
+  margin-top: 20%;
+  font-size: 2em;
+
+  .info {
+    border-bottom: 2px solid red;
+  }
+
+  .block {
+    text-align: center;
+    .numeric {
+      display: flex;
+      div {
+        margin-right: 2em;
+      }
+    }
+    .alpha {
+      display: flex;
+      div {
+        margin-right: 2em;
+      }
+    }
+    .time {
+      flex: 0 1 calc(20% - 8px);
+    }
+  }
+}

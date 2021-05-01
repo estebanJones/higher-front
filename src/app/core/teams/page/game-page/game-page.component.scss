@@ -1,0 +1,11 @@
+.container-games {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .cardBlock {
+        margin: 4px;
+        flex: 0 1 calc(20% - 8px);
+    }
+}

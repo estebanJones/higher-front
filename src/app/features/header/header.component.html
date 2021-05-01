@@ -1,0 +1,25 @@
+<nav class="container-fluid barre_navigation">
+  <div class="row">
+    <div class="col-2" [routerLink]="['/']">
+      <img src={{linkLogo}} alt="" />
+    </div>
+    <div class="col-5">
+      <div id="navigation">
+        <a class="nav-link" routerLink="/teams">TEAMS</a>
+        <a class="nav-link" href="https://www.rentgamingcomputer.com/">SHOP</a>
+        <a class="nav-link" href="#" >NEWS</a>
+      </div>
+    </div>
+    <div class="col-5">
+      <div id="espacePersonnel">
+        <a class="nav-link" [routerLink]="['account']">LOG IN</a>
+        <a class="nav-link" href="#">PANIER</a>
+        <div> <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form></div>
+      </div>
+    </div>
+  </div>
+</nav>
+

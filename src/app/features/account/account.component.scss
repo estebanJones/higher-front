@@ -1,0 +1,25 @@
+.account_page {
+    height: 100vh;
+
+    .title {
+        font-family: 'Roboto';
+        font-weight: 700;
+        text-align: center;
+        padding-top: 10%;
+        border-bottom: 2px solid red;
+        
+        span {
+            color:red;
+        }
+    }
+    .register_connection_block {
+        margin-top: 10%;
+        margin-left: 10%;
+    }
+
+    .any_block {
+        background-color: #fafafa;
+        border: 2px solid black;
+
+    }
+}
