@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
   register(): void {
     this.registerDtoRequest.email = this.registerFormulaire.value.email;
     this.registerDtoRequest.password = this.registerFormulaire.value.password;
-    console.log(this.registerDtoRequest);
+
     this.httpService.post("/user/inscription", this.registerDtoRequest, 
     new HttpHeaders({
       "Content-Type": "application/json"

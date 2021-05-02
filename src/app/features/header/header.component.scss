@@ -1,6 +1,9 @@
 .barre_navigation {
     background-color: rgba($color: #2b2b2e, $alpha: 1.0);
-    color: white;
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid black;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
 }
 
 // ALIGN LE TEXT DANS LA NAVBAR

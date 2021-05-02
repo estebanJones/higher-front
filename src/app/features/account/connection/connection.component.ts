@@ -15,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class ConnectionComponent implements OnInit {
   connexionFormulaire!: FormGroup;
+  errorConnection?: boolean;
   constructor(private _httpService: HttpService, private _authService: AuthService, private _router: Router) {
     this.connexionFormulaire = new FormGroup({
       username: new FormControl('', {
@@ -47,7 +48,7 @@ export class ConnectionComponent implements OnInit {
           this._authService.sendToUserSub(user);
           this._router.navigate(['/teams'])
         },
-        err => console.log(err)
+        err => this.errorConnection = true
       );
     
   }   

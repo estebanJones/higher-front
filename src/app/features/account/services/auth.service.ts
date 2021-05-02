@@ -27,21 +27,13 @@ export class AuthService {
    */
   verifierAuthentification(): Observable<ConnectedUser> {
     const connectedUser: ConnectedUser = this.userConnectedSub.getValue() as ConnectedUser;
-    console.log("Verification Auth -> connectedUser -> ", connectedUser);
-    if(!!connectedUser.email) {
-      console.log("Verification Auth -> email existe")
-     return this.getMe().pipe(
+     return !!connectedUser.email ? 
+     this.getMe().pipe(
         map(userServer => new ConnectedUser(userServer)),
         tap(user => this.userConnectedSub.next(user)),
-        catchError(err => {
-          console.log("Verification Auth -> ERR ", err)
-          return of(USER_ANONYM);
-        })
-    )
-    } else {
-      console.log("Verification Auth -> email existe")
-      return of(this.userConnectedSub.getValue());
-    }
+        catchError(err => of(USER_ANONYM))) 
+        : 
+        of(this.userConnectedSub.getValue());
   }
 
   getMe() :Observable<ConnectedUser> {
@@ -50,5 +42,9 @@ export class AuthService {
 
   sendToUserSub(connectedUser :ConnectedUser) {
     this.userConnectedSub.next(connectedUser);
+  }
+
+  get collegueConnecteObs(): Observable<ConnectedUser> {
+    return this.userConnectedSub.asObservable();
   }
 }

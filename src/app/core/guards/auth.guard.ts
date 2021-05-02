@@ -15,13 +15,9 @@ import { AuthService } from "src/app/features/account/services/auth.service";
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
       return this._authService.verifierAuthentification()
         .pipe(
-          map(user => {
-            console.log("AuthGuard user -> apres verification -> ", user);
-            return user.isConnected();
-          }),
+          map(user => user.isConnected()),
           tap(estConnecte => {
             if (!estConnecte) {
-              console.log("AuthGuard -> retour verification -> non connecté");
               this._router.navigate(['/account']);
             }
           })

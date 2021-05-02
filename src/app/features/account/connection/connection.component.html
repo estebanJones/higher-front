@@ -1,6 +1,6 @@
 <!-- Default form login -->
 <form class="text-center border border-light p-5 formulaire_connection" [formGroup]="connexionFormulaire" (ngSubmit)="connexion()">
-    <p class="h2 mb-4 title">CONNECTION</p>
+    <p class="h2 mb-4 title">CONNECTION </p>
     <!-- Email -->
     <input type="email" name="username" class="form-control mb-4" placeholder="E-mail" formControlName="username">
     <!-- Password -->
@@ -13,6 +13,9 @@
         <a href="">Mot de passe oublié ?</a>
       </div>
     </div>
-    <button mdbBtn color="info"  class="my-4" type="submit">Se connecter</button>
+    <div *ngIf="errorConnection" class="alert alert-danger mt-1" role="alert">
+      Vos informations d'authentification sont invalides.
+    </div>
+    <button mdbBtn class="my-4 connection_button" type="submit">Se connecter <em class="fas fa-angle-right fa-4x"></em></button>
   </form>
   <!-- Default form login -->
