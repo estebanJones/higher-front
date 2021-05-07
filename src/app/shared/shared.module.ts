@@ -5,18 +5,22 @@ import { BrowserModule } from "@angular/platform-browser";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
 import { AuthInterceptorService } from "../features/account/services/auth-interceptor.service";
 import { EnvService } from "./env/env.service";
+import { HeaderComponent } from "./header/header.component";
 import { HttpService } from "./http/http.service";
+import { SharedRoutingModule } from "./shared-routing.module";
 
 
 
 @NgModule({
     declarations: [
+      HeaderComponent
     ],
     imports: [
       BrowserModule,
       MDBBootstrapModule.forRoot(),
       FormsModule,
       HttpClientModule,
+      SharedRoutingModule
     ],
     providers: [{
       provide: HTTP_INTERCEPTORS,
@@ -26,6 +30,9 @@ import { HttpService } from "./http/http.service";
         HttpService,
         EnvService,
         AuthInterceptorService
+    ],
+    exports: [
+      HeaderComponent
     ]
   })
   export class SharedModule { }

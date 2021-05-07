@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ConnectedUser } from '../account/dto/connectedUser.model';
-import { AuthService } from '../account/services/auth.service';
+import { ConnectedUser } from '../../features/account/dto/connectedUser.model';
+import { AuthService } from '../../features/account/services/auth.service';
 
 @Component({
   selector: 'app-header',

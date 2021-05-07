@@ -13,13 +13,11 @@ import { AccountComponent } from './features/account/account.component';
 import { ConnectionComponent } from './features/account/connection/connection.component';
 import { RegisterComponent } from './features/account/register/register.component';
 import { EmptyPageComponent } from './features/empty-page/empty-page.component';
-import { HeaderComponent } from './features/header/header.component';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     EmptyPageComponent,
     AccountComponent,
     RegisterComponent,
