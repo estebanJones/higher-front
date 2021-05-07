@@ -1,6 +1,6 @@
 import { Country } from '@angular-material-extensions/select-country';
 import { HttpHeaders } from '@angular/common/http';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/shared/http/http.service';
 import { RegisterDtoRequest } from '../dto/registerDtoRequest';
@@ -50,12 +50,12 @@ export class RegisterComponent implements OnInit {
     this.registerDtoRequest.email = this.registerFormulaire.value.email;
     this.registerDtoRequest.password = this.registerFormulaire.value.password;
     console.log("registerDtoRequest ",this.registerDtoRequest)
-    // this.httpService.post("/user/inscription", this.registerDtoRequest,
-    // new HttpHeaders({
-    //   "Content-Type": "application/json"
-    // })).subscribe(
-    //   ret => console.log("Le retour ? ", ret),
-    //   err => console.log("Une erreur ?", err)
-    // );
+    this.httpService.post("/user/inscription", this.registerDtoRequest,
+    new HttpHeaders({
+      "Content-Type": "application/json"
+    })).subscribe(
+      ret => console.log("Le retour ? ", ret),
+      err => console.log("Une erreur ?", err)
+    );
   }
 }
