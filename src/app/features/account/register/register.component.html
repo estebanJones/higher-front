@@ -3,5 +3,12 @@
     <p class="h2 mb-4 title">INSCRIPTION</p>
     <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail" formControlName="email">
     <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" formControlName="password">
+    <mat-select-country [class]="'input-nationalite'" appearance="fill"
+    (onCountrySelected)="onCountrySelected($event)">
+    </mat-select-country>
     <button mdbBtn  class="my-4 connection_button" type="submit">C'est parti !<em class="fas fa-angle-right fa-4x ml-1"></em></button>
 </form>
+
+
+
+

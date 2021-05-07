@@ -1,9 +1,9 @@
+import { Country } from '@angular-material-extensions/select-country';
 import { HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from 'src/app/shared/http/http.service';
 import { RegisterDtoRequest } from '../dto/registerDtoRequest';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -26,10 +26,11 @@ export class RegisterComponent implements OnInit {
         validators: [
           Validators.required
         ]
-      })
+      }),
+      country : new FormControl(),
     })
    }
-  
+
 
   ngOnInit(): void {
   }
@@ -38,7 +39,7 @@ export class RegisterComponent implements OnInit {
     this.registerDtoRequest.email = this.registerFormulaire.value.email;
     this.registerDtoRequest.password = this.registerFormulaire.value.password;
 
-    this.httpService.post("/user/inscription", this.registerDtoRequest, 
+    this.httpService.post("/user/inscription", this.registerDtoRequest,
     new HttpHeaders({
       "Content-Type": "application/json"
     })).subscribe(
@@ -46,4 +47,9 @@ export class RegisterComponent implements OnInit {
       err => console.log("Une erreur ?", err)
     );
   }
+
+  onCountrySelected(country : Country) {
+console.log("event on country select" , country)
+  }
+
 }

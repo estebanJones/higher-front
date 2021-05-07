@@ -16,13 +16,13 @@ import { HttpService } from "./http/http.service";
       BrowserModule,
       MDBBootstrapModule.forRoot(),
       FormsModule,
-      HttpClientModule
+      HttpClientModule,
     ],
     providers: [{
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptorService,
       multi: true
-    }, 
+    },
         HttpService,
         EnvService,
         AuthInterceptorService
