@@ -10,7 +10,6 @@ import { HttpService } from "./http/http.service";
 import { SharedRoutingModule } from "./shared-routing.module";
 
 
-
 @NgModule({
     declarations: [
       HeaderComponent
