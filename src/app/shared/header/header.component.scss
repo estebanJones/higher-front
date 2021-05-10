@@ -22,6 +22,27 @@
     display: flex;
     justify-content: flex-end;
     font-size: 1.5em;
+
+    .container_connected {
+        display: flex;
+    }
+
+    .user_panel {
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+        padding: inherit;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .user_panel:hover {
+        background-color: rgba(148, 158, 168, 0.678);
+    }
+
+    .user_pseudo {
+        padding-left: 2em;
+    }
 }
 
 img {

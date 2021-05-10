@@ -1,15 +1,13 @@
 import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { HttpService } from "../shared/http/http.service";
 import { TeamsModule } from "./teams/teams.module";
-
+import { EquipeModule } from "./equipe/equipe.module";
 @NgModule({
-    declarations: [
-    ],
+    declarations: [],
     imports:[
         CommonModule,
-        TeamsModule
+        TeamsModule,
+        EquipeModule
     ],
     providers: [
     ]

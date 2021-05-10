@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ConnectedUser } from '../../features/account/dto/connectedUser.model';
 import { AuthService } from '../../features/account/services/auth.service';
+import { LocalStorageService } from '../localStorage.service';
 
 @Component({
   selector: 'app-header',
@@ -9,21 +11,41 @@ import { AuthService } from '../../features/account/services/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  linkLogo: string = '../../../assets/higher_logo.png';
-  utilisateurConnecte!: Observable<ConnectedUser>;
-  isConnected: boolean = false;
-  constructor(private _authService: AuthService) { }
+  linkLogo = '../../../assets/higher_logo.png';
+  utilisateurConnecteObs!: Observable<ConnectedUser>;
+  isConnected = false;
+  connectedUser!: ConnectedUser;
+  pseudoUserConnected?: string;
+  constructor(private authService: AuthService, private localStorage: LocalStorageService, private router: Router) { }
 
   ngOnInit(): void {
-    this.utilisateurConnecte = this._authService.collegueConnecteObs;
-    this.utilisateurConnecte.subscribe(ret => {
-      if(ret.email != undefined) {
-        this.isConnected = true;
-        console.log("il y a email ", ret)
+    this.utilisateurConnecteObs = this.authService.collegueConnecteObs;
+    this.utilisateurConnecteObs.subscribe(ret => {
+      // SI IL y a un utilisateur en cache
+      if (ret.email !== undefined && ret.username !== undefined) {
+        this.setConnectedUser(ret);
       } else {
-        console.log("pas d' email")
+        // Pas de cache
+        this.controleUserStorage();
       }
-    }, err => console.log("error ", err) );
+    }, err => {
+      console.log('une erreur est survenue');
+    });
   }
 
+  private controleUserStorage(): void {
+    const userLocal = this.localStorage.getItem<ConnectedUser>('utilisateur');
+    if (userLocal !== null) {
+      // Check dans le localStorage
+     this.setConnectedUser(userLocal);
+    } else {
+      // LocalStorage vide
+      this.router.navigate(['account']);
+    }
+  }
+
+  private setConnectedUser(connectedUser: ConnectedUser): void {
+    this.isConnected = true;
+    this.connectedUser = connectedUser;
+  }
 }

@@ -1,10 +1,10 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { GamePageComponent } from "./page/game-page/game-page.component";
-import { PlayerCardComponent } from "./components/player-card/player-card.component";
-import { TeamsComponent } from "./page/teams.component";
 import { RosterPageComponent } from "./page/roster-page/roster-page.component";
 import { AuthGuard } from "../guards/auth.guard";
+import { EquipeComponent } from "../equipe/main/equipe.component";
+
 
 
 const routes: Routes = [
@@ -16,6 +16,10 @@ const routes: Routes = [
     {
         path : 'csgo',
         component: RosterPageComponent
+    },
+    {
+        path : 'equipe',
+        component: EquipeComponent
     },
     {
         path : '**',

@@ -6,8 +6,12 @@ import { EmptyPageComponent } from './features/empty-page/empty-page.component';
 
 export const routes: Routes = [
     {
-        path: 'teams',
+        path: 'squad',
         loadChildren: () => import('./core/teams/teams.module').then(module => module.TeamsModule),
+    },
+    {
+        path: 'profil',
+        loadChildren: () => import('./core/equipe/equipe.module').then(module => module.EquipeModule),
     },
     {
         path: 'account',

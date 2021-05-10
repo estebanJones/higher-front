@@ -3,6 +3,8 @@ import { Role } from "./role.model";
 export class ConnectedUser{
     id!: number;
     email!: string;
+    username!: string;
+	  nationalite!: string;
     role!: Role[];
   
     constructor(params: any) {

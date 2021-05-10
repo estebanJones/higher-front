@@ -9,9 +9,9 @@ import { AuthService } from './features/account/services/auth.service';
 export class AppComponent implements OnInit {
   title = 'higher';
 
-  constructor(private _authService: AuthService) {}
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
-    this._authService.verifierAuthentification();
+    this.authService.verifierAuthentification();
   }
 }
