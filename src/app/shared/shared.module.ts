@@ -10,6 +10,7 @@ import { HttpService } from './http/http.service';
 import { LocalStorageService } from './localStorage.service';
 import { SharedRoutingModule } from './shared-routing.module';
 import { DropdownDirective } from './directives/dropdown.directive';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { DropdownDirective } from './directives/dropdown.directive';
       MDBBootstrapModule.forRoot(),
       FormsModule,
       HttpClientModule,
-      SharedRoutingModule
+      SharedRoutingModule,
+      NgbDropdownModule
     ],
     providers: [{
       provide: HTTP_INTERCEPTORS,

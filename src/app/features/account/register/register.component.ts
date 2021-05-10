@@ -11,6 +11,7 @@ import { RegisterDtoRequest } from '../dto/registerDtoRequest';
 })
 export class RegisterComponent implements OnInit {
   static EMAIL_REGX = '^[a-z0-9]+([_|\.|-]{1}[a-z0-9]+)*([-]{1})?@[a-z0-9]+([\.|-]{1}[a-z0-9]+)*[\.]{1}[a-z]{2,6}$';
+  //TODO REG EX MDP
   registerFormulaire!: FormGroup;
   registerDtoRequest: RegisterDtoRequest = new RegisterDtoRequest();
 

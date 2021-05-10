@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
     }, err => {
       console.log('une erreur est survenue');
     });
+
   }
 
   private controleUserStorage(): void {
@@ -47,5 +48,6 @@ export class HeaderComponent implements OnInit {
   private setConnectedUser(connectedUser: ConnectedUser): void {
     this.isConnected = true;
     this.connectedUser = connectedUser;
+    console.log("connected username " , this.isConnected);
   }
 }
