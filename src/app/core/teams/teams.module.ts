@@ -20,14 +20,13 @@ import { RouterModule } from "@angular/router";
     ],
     imports:[
         CommonModule,
-        TeamsRoutingModule,
         RouterModule
     ],
     providers: [
 
     ],
     exports: [
-        CommonModule
+
     ]
 })
 export class TeamsModule { }

@@ -53,4 +53,8 @@ export class HeaderComponent implements OnInit {
     this.connectedUser = connectedUser;
     console.log("connected username " , this.isConnected);
   }
+
+  logout() {
+    //TODO
+  }
 }

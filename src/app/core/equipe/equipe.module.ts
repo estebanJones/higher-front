@@ -11,7 +11,6 @@ import { EquipeComponent } from "./main/equipe.component";
     ],
     imports:[
         CommonModule,
-        SharedModule,
         EquipeRoutingModule
     ],
     providers: [
