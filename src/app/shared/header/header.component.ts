@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   isConnected = false;
   connectedUser!: ConnectedUser;
   pseudoUserConnected?: string;
+  clickOnProfil = false;
   constructor(private authService: AuthService, private localStorage: LocalStorageService, private router: Router) { }
 
   ngOnInit(): void {
@@ -31,6 +32,7 @@ export class HeaderComponent implements OnInit {
     }, err => {
       console.log('une erreur est survenue');
     });
+    console.log("valeur du click ", this.clickOnProfil)
   }
 
   private controleUserStorage(): void {
@@ -40,6 +42,7 @@ export class HeaderComponent implements OnInit {
      this.setConnectedUser(userLocal);
     } else {
       // LocalStorage vide
+      localStorage.clear();
       this.router.navigate(['account']);
     }
   }

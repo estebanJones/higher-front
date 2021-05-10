@@ -1,9 +1,10 @@
-import { Directive, ElementRef, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
   selector: '[appDropdown]'
 })
 export class DropdownDirective {
+  @Input() appDropdown = false;
   // clickOnProfil = false;
   constructor(private el: ElementRef) { }
 
