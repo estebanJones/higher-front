@@ -4,6 +4,7 @@
     border-bottom: 1px solid black;
     border-bottom-left-radius: 5%;
     border-bottom-right-radius: 5%;
+    display: block;
 }
 
 // ALIGN LE TEXT DANS LA NAVBAR
@@ -25,6 +26,10 @@
 
     .container_connected {
         display: flex;
+    }
+
+    .dropdown {
+    padding-right: 5%;
     }
 
     .user_panel {
@@ -58,4 +63,13 @@ a {
     padding-right: 2%;
     text-decoration: none;
     color: inherit;
+}
+
+.btn-login {
+  color : black;
+  border-color: black;
+}
+
+#dropdownUtilisateur:focus {
+  box-shadow: 0 0 0 0.2rem rgb(255 0 0 / 25%);
 }

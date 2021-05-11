@@ -17,23 +17,8 @@
             <a class="nav-link" [routerLink]="['account']"><mdb-icon class="pr-1" fas icon="lock"></mdb-icon>Connection</a>
         </ng-template>
         <ng-template #l class="container_connected">
-          <!-- <div class="container">
-            <a class="nav-link" [routerLink]="['profil/equipe']"><mdb-icon class="pr-1" fas icon="lock"></mdb-icon>MyTeams</a>
-            <a class="nav-link user_panel" [routerLink]="['/']"><mdb-icon fas icon="user"></mdb-icon>
-              <span class="user_pseudo pl-2">
-                {{ connectedUser.username }}
-              </span>
-              <div appDropDown class="container conteneur_profil">
-                <ul>
-                  <li>Teams</li>
-                  <li>Se deconnecter</li>
-                </ul>
-              </div>
-            </a>
-
-          </div> -->
-              <div ngbDropdown  #myDrop="ngbDropdown">
-                <button class="btn btn-outline-primary" id="dropdownUtilisateur" ngbDropdownToggle>
+              <div ngbDropdown display="dynamic" class="dropdown" #myDrop="ngbDropdown">
+                <button class="btn btn-login" id="dropdownUtilisateur" ngbDropdownToggle>
                   <span class="user_pseudo pl-2">
                     {{ connectedUser.username }}
                   </span>
@@ -52,10 +37,10 @@
         </ng-template>
          <!-- CONDITION SUR UTILISATEUR CONNECTE -->
         <div>
-          <form class="form-inline">
+          <!-- <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
-          </form>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form> -->
         </div>
       </div>
 
