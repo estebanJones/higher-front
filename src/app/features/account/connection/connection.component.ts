@@ -47,12 +47,11 @@ export class ConnectionComponent implements OnInit {
       )
       .subscribe(
         user => {
-          console.log('succes ', user); 
           this.authService.sendToUserSub(user);
           this.localStorage.setItem('utilisateur', user);
           this.router.navigate(['/teams']);
         },
-        err => {console.log('erreur ', err); this.errorConnection = true}
+        err => {console.log('erreur ', err); this.errorConnection = true;}
       );
   }
 }

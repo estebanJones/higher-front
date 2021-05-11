@@ -17,44 +17,19 @@ export class HeaderComponent implements OnInit {
   connectedUser!: ConnectedUser;
   pseudoUserConnected?: string;
   clickOnProfil = false;
+
+  userObs!: Observable<ConnectedUser>;
   constructor(private authService: AuthService, private localStorage: LocalStorageService, private router: Router) { }
 
   ngOnInit(): void {
-    this.utilisateurConnecteObs = this.authService.collegueConnecteObs;
-    this.utilisateurConnecteObs.subscribe(ret => {
-      // SI IL y a un utilisateur en cache
-      if (ret.email !== undefined && ret.username !== undefined) {
-        this.setConnectedUser(ret);
-      } else {
-        // Pas de cache
-        this.controleUserStorage();
-      }
-    }, err => {
-      console.log('une erreur est survenue');
+    this.localStorage.controleUserStorage();
+    this.userObs =  this.localStorage.getConnectedUser();
+    this.userObs.subscribe((utilisateur: ConnectedUser) => {
+      this.connectedUser = utilisateur;
     });
-
-    console.log('valeur du click ', this.clickOnProfil)
   }
 
-  private controleUserStorage(): void {
-    const userLocal = this.localStorage.getItem<ConnectedUser>('utilisateur');
-    if (userLocal !== null) {
-      // Check dans le localStorage
-     this.setConnectedUser(userLocal);
-    } else {
-      // LocalStorage vide
-      localStorage.clear();
-      this.router.navigate(['account']);
-    }
-  }
-
-  private setConnectedUser(connectedUser: ConnectedUser): void {
-    this.isConnected = true;
-    this.connectedUser = connectedUser;
-    console.log('connected username ' , this.isConnected);
-  }
-
-  logout() {
+  logout(): void {
     this.isConnected = false;
     localStorage.clear();
     this.router.navigate(['account']);

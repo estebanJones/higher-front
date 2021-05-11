@@ -1,17 +1,22 @@
-import { CommonModule } from "@angular/common";
-import { NgModule } from "@angular/core";
-import { SharedModule } from "src/app/shared/shared.module";
-import { EquipeRoutingModule } from "./equipe-routing.module";
-import { EquipeComponent } from "./main/equipe.component";
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../../shared/shared.module';
+import { EquipeListComponent } from './equipe-list/equipe-list.component';
+import { EquipeRoutingModule } from './equipe-routing.module';
+import { EquipeComponent } from './main/equipe.component';
 
 
 @NgModule({
     declarations: [
-        EquipeComponent
+        EquipeComponent,
+        EquipeListComponent
     ],
-    imports:[
+    imports: [
         CommonModule,
-        EquipeRoutingModule
+        EquipeRoutingModule,
+        ReactiveFormsModule,
+        SharedModule
     ],
     providers: [
 

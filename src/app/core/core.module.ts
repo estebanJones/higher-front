@@ -1,10 +1,13 @@
-import { CommonModule } from "@angular/common";
-import { NgModule } from "@angular/core";
-import { TeamsModule } from "./teams/teams.module";
-import { EquipeModule } from "./equipe/equipe.module";
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { EquipeModule } from './equipe/equipe.module';
+import { TeamsModule } from './teams/teams.module';
+import { SharedModule } from '../shared/shared.module';
 @NgModule({
-    declarations: [],
-    imports:[
+    declarations: [
+
+    ],
+    imports: [
         CommonModule,
         TeamsModule,
         EquipeModule

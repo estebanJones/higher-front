@@ -1,1 +1,13 @@
-<p>equipe works!</p>
+<app-equipe-list></app-equipe-list>
+
+<app-modale [textButton]="'Créer'">
+<p slot="header">Créer votre équipe</p>
+<div slot="body">
+  Nom de votre équipe :
+  <!-- TODO Input pour récupérer le nom de l'équipe à créer -->
+  <input >
+</div>
+<div slot="footer"> <button mdbBtn  (click)="onCreate()">Créer
+</button>
+</div>
+</app-modale>
