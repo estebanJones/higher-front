@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
       console.log('une erreur est survenue');
     });
 
-    console.log("valeur du click ", this.clickOnProfil)
+    console.log('valeur du click ', this.clickOnProfil)
   }
 
   private controleUserStorage(): void {
@@ -51,10 +51,12 @@ export class HeaderComponent implements OnInit {
   private setConnectedUser(connectedUser: ConnectedUser): void {
     this.isConnected = true;
     this.connectedUser = connectedUser;
-    console.log("connected username " , this.isConnected);
+    console.log('connected username ' , this.isConnected);
   }
 
   logout() {
-    //TODO
+    this.isConnected = false;
+    localStorage.clear();
+    this.router.navigate(['account']);
   }
 }

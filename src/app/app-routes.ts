@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { AccountComponent } from './features/account/account.component';
 import { EmptyPageComponent } from './features/empty-page/empty-page.component';
 
