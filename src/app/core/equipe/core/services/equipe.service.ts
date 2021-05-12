@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpService } from '../../../../shared/http/http.service';
 import { Equipe } from '../model/equipe';
+import { EquipeACreer } from '../model/equipeACreer';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class EquipeService {
     return this.httpService.get<Equipe[]>(this.path + '/liste/' + idUtilisateur);
   }
 
-    creerEquipe(equipe: Equipe): void {
+    creerEquipe(equipe: EquipeACreer): void {
       this.httpService.post(this.path + '/create', equipe,
       new HttpHeaders({
         'Content-Type': 'application/json'

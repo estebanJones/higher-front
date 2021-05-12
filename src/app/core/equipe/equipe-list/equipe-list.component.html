@@ -1,2 +1,6 @@
 <p>Mes équipes </p>
 <!-- TODO liste équipes -->
+<div *ngFor="let equipe of equipesUtilisateur">
+<button (click)="onSelectEquipe(equipe?.nom)">{{equipe.nom}}</button>
+
+</div>
