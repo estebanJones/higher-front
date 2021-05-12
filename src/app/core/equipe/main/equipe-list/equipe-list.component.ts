@@ -24,7 +24,6 @@ export class EquipeListComponent implements OnInit {
         .subscribe((equipes) => {
           this.equipesUtilisateur = equipes;
         });
-      console.log('equipes utilisateur : ', this.equipesUtilisateur);
     }
   }
   onSelectEquipe(nomEquipe: any): void{

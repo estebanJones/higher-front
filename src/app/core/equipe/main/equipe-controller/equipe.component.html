@@ -10,7 +10,6 @@
       <app-modale [textButton]="'Créer une nouvelle équipe'">
         <p slot="header">Créer votre équipe</p>
 
-        <!-- TODO Input pour récupérer le nom de l'équipe à créer -->
         <div slot="body">
           <input
             type="text"
@@ -33,9 +32,15 @@
     <div class="col-9">
       <h1 class="center">{{ equipeSelectionnee?.nom }}</h1>
       <!-- Joueurs de l'équipe-->
-      <!-- <div *ngFor="let membre of membres">
-        <app-membre-card [membre]="membre"></app-membre-card>
-      </div> -->
+      <div *ngFor="let membre of membres">
+        <div class="container">
+          <div class="row">
+            <div class="col-4">
+              <app-membre-card [membre]="membre"></app-membre-card>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- Fin joueurs -->
       <!-- Scores de l'équipe -->
       <div class="row">
