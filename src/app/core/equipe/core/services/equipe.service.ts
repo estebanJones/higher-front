@@ -16,6 +16,9 @@ export class EquipeService {
     return this.httpService.get<Equipe[]>(this.path + '/liste/' + idUtilisateur);
   }
 
+  getJoueursParEquipe(idEquipe: number): Observable<Membre[]>{
+
+  }
     creerEquipe(equipe: EquipeACreer): void {
       this.httpService.post(this.path + '/create', equipe,
       new HttpHeaders({

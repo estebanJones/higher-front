@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <!-- PARTIE GAUCHE -->
+    <div class="col-3">
+      <app-equipe-list
+        [utilisateur]="connectedUser"
+        (selectEquipe)="onSelectEquipe($event)"
+      ></app-equipe-list>
+
+      <app-modale [textButton]="'Créer une nouvelle équipe'">
+        <p slot="header">Créer votre équipe</p>
+
+        <!-- TODO Input pour récupérer le nom de l'équipe à créer -->
+        <div slot="body">
+          <input
+            type="text"
+            id="nom"
+            name="nom"
+            class="form-control"
+            [(ngModel)]="equipeACreer.nom"
+            placeholder="Nom de votre équipe"
+          />
+        </div>
+
+        <div slot="footer">
+          <button mdbBtn (click)="onCreate()">Valider</button>
+        </div>
+      </app-modale>
+    </div>
+    <!-- Fin partie gauche -->
+
+    <!-- Partie droite -->
+    <div class="col-9">
+      <h1 class="center">{{ equipeSelectionnee?.nom }}</h1>
+      <!-- Joueurs de l'équipe-->
+      <div>
+        <app-membre-card
+      </div>
+      <!-- Fin joueurs -->
+      <!-- Scores de l'équipe -->
+      <div class="row">
+        <div class="center col-6">
+          <p *ngIf="equipeSelectionnee">Nombre de victoires</p>
+          {{ equipeSelectionnee?.nbVictory }}
+        </div>
+        <div class="center col-6">
+          <p *ngIf="equipeSelectionnee">Nombre de défaites</p>
+          {{ equipeSelectionnee?.nbDefeat }}
+        </div>
+      </div>
+      <!-- Fin scores -->
+    </div>
+    <!-- Fin partie droite -->
+  </div>
+</div>

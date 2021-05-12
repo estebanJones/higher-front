@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Equipe } from '../core/model/equipe';
-import { EquipeService } from '../core/services/equipe.service';
-import { ConnectedUser } from '../../../features/account/dto/connectedUser.model';
+import { Equipe } from '../../core/model/equipe';
+import { EquipeService } from '../../core/services/equipe.service';
+import { ConnectedUser } from '../../../../features/account/dto/connectedUser.model';
 
 
 @Component({
@@ -10,9 +10,10 @@ import { ConnectedUser } from '../../../features/account/dto/connectedUser.model
   styleUrls: ['./equipe-list.component.scss'],
 })
 export class EquipeListComponent implements OnInit {
+  @Output() selectEquipe: EventEmitter<string> = new EventEmitter();
   @Input() utilisateur!: ConnectedUser;
   equipesUtilisateur!: Equipe[];
-  @Output() selectEquipe: EventEmitter<string> = new EventEmitter();
+
 
   constructor(private equipeService: EquipeService) {}
 

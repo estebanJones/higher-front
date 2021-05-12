@@ -3,7 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { GamePageComponent } from "./page/game-page/game-page.component";
 import { RosterPageComponent } from "./page/roster-page/roster-page.component";
 import { AuthGuard } from "../guards/auth.guard";
-import { EquipeComponent } from "../equipe/main/equipe.component";
+import { EquipeComponent } from "../equipe/main/equipe-controller/equipe.component";
 
 
 

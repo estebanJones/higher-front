@@ -1,12 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ConnectedUser } from 'src/app/features/account/dto/connectedUser.model';
-import { LocalStorageService } from '../../../shared/localStorage.service';
-import { ModaleComponent } from '../../../shared/modale/modale.component';
-import { Equipe } from '../core/model/equipe';
-import { EquipeService } from '../core/services/equipe.service';
+import { LocalStorageService } from '../../../../shared/localStorage.service';
+import { ModaleComponent } from '../../../../shared/modale/modale.component';
+import { Equipe } from '../../core/model/equipe';
+import { EquipeService } from '../../core/services/equipe.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { EquipeACreer } from '../core/model/equipeACreer';
+import { EquipeACreer } from '../../core/model/equipeACreer';
 
 @Component({
   selector: 'app-equipe',
