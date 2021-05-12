@@ -15,10 +15,10 @@ export class EquipeService {
   getEquipesParJoueur(idUtilisateur: number): Observable<Equipe[]> {
     return this.httpService.get<Equipe[]>(this.path + '/liste/' + idUtilisateur);
   }
+  // TODO Récupérer joueurs d'une équipe
+  // getJoueursParEquipe(idEquipe: number): Observable<Membre[]>{
 
-  getJoueursParEquipe(idEquipe: number): Observable<Membre[]>{
-
-  }
+  // }
     creerEquipe(equipe: EquipeACreer): void {
       this.httpService.post(this.path + '/create', equipe,
       new HttpHeaders({
