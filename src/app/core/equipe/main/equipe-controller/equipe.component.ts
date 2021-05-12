@@ -7,6 +7,7 @@ import { Equipe } from '../../core/model/equipe';
 import { EquipeService } from '../../core/services/equipe.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { EquipeACreer } from '../../core/model/equipeACreer';
+import { Membre } from '../../core/model/membre';
 
 @Component({
   selector: 'app-equipe',
@@ -22,7 +23,7 @@ export class EquipeComponent implements OnInit {
   nomEquipe!: string;
   equipeACreer: EquipeACreer = new EquipeACreer();
   equipeSelectionnee!: Equipe;
-
+  membres!: Membre[];
   constructor(private localStorage: LocalStorageService,
               private equipeService: EquipeService) {
               //   this.createEquipeForm = new FormGroup({
@@ -48,15 +49,22 @@ export class EquipeComponent implements OnInit {
   }
 
   onCreate(): void {
-    // TODO Création d'équipe -- déterminer les paramètres nécessaires à la création
     this.equipeACreer.createurId = this.connectedUser.id;
     this.equipeService.creerEquipe(this.equipeACreer);
+  }
+
+  getJoueursParEquipe(idEquipe: number): void {
+    console.log('id equipe avant get ' , idEquipe);
+    this.equipeService.getJoueursParEquipe(idEquipe).subscribe(membres => {
+      this.membres = membres;
+    });
   }
 
   onSelectEquipe(nomEquipe: string): void {
     this.equipesUtilisateur.forEach(equipe => {
       if (equipe.nom === nomEquipe){
         this.equipeSelectionnee =  equipe;
+        this.getJoueursParEquipe(equipe.id);
       }
     });
   }

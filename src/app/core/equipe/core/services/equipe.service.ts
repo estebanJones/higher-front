@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { HttpService } from '../../../../shared/http/http.service';
 import { Equipe } from '../model/equipe';
 import { EquipeACreer } from '../model/equipeACreer';
+import { Membre } from '../model/membre';
 
 @Injectable({
   providedIn: 'root'
@@ -15,10 +16,9 @@ export class EquipeService {
   getEquipesParJoueur(idUtilisateur: number): Observable<Equipe[]> {
     return this.httpService.get<Equipe[]>(this.path + '/liste/' + idUtilisateur);
   }
-  // TODO Récupérer joueurs d'une équipe
-  // getJoueursParEquipe(idEquipe: number): Observable<Membre[]>{
-
-  // }
+  getJoueursParEquipe(idEquipe: number): Observable<Membre[]>{
+    return this.httpService.get<Membre[]>(this.path + '/' + idEquipe +  '/membres/');
+  }
     creerEquipe(equipe: EquipeACreer): void {
       this.httpService.post(this.path + '/create', equipe,
       new HttpHeaders({
