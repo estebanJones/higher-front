@@ -12,20 +12,12 @@ import { ConnectedUser } from '../../../../features/account/dto/connectedUser.mo
 export class EquipeListComponent implements OnInit {
   @Output() selectEquipe: EventEmitter<string> = new EventEmitter();
   @Input() utilisateur!: ConnectedUser;
-  equipesUtilisateur!: Equipe[];
+  @Input() equipesUtilisateur!: Equipe[];
 
 
   constructor(private equipeService: EquipeService) {}
 
-  ngOnInit(): void {
-    if (this.utilisateur) {
-      this.equipeService
-        .getEquipesParJoueur(this.utilisateur.id)
-        .subscribe((equipes) => {
-          this.equipesUtilisateur = equipes;
-        });
-    }
-  }
+  ngOnInit(): void {}
   onSelectEquipe(nomEquipe: any): void{
     this.selectEquipe.emit(nomEquipe);
   }

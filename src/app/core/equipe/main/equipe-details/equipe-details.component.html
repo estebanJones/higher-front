@@ -1,0 +1,34 @@
+<h1 class="text-center">{{ equipeSelectionnee?.nom }}</h1>
+<!-- Joueurs de l'équipe-->
+<div *ngFor="let membre of membres">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <app-membre-card [membre]="membre"></app-membre-card>
+      </div>
+    </div>
+  </div>
+</div>
+<app-modale *ngIf="equipeSelectionnee" [textButton]="'Inviter des membres'">
+  <p slot="header">Invite des potes</p>
+  <div slot="body"></div>
+
+  <div slot="footer">
+    <button mdbBtn (click)="onInviteMembres()">Inviter</button>
+  </div>
+</app-modale>
+<!-- Fin joueurs -->
+<!-- Scores de l'équipe -->
+<div class="container">
+  <div class="row">
+    <div class="text-center col-6">
+      <p *ngIf="equipeSelectionnee">Nombre de victoires</p>
+      {{ equipeSelectionnee?.nbVictory }}
+    </div>
+    <div class="text-center col-6">
+      <p *ngIf="equipeSelectionnee">Nombre de défaites</p>
+      {{ equipeSelectionnee?.nbDefeat }}
+    </div>
+  </div>
+</div>
+<!-- Fin scores -->

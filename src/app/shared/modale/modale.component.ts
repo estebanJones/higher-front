@@ -17,4 +17,8 @@ export class ModaleComponent implements OnInit {
     this.modalService.open(content);
   }
 
+  hide(){
+    this.modalService.dismissAll();
+  }
+
 }

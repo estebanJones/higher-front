@@ -6,13 +6,15 @@ import { EquipeListComponent } from './main/equipe-list/equipe-list.component';
 import { EquipeRoutingModule } from './equipe-routing.module';
 import { EquipeComponent } from './main/equipe-controller/equipe.component';
 import { MembreCardComponent } from './main/membre-card/membre-card.component';
+import { EquipeDetailsComponent } from './main/equipe-details/equipe-details.component';
 
 
 @NgModule({
     declarations: [
         EquipeComponent,
         EquipeListComponent,
-        MembreCardComponent
+        MembreCardComponent,
+        EquipeDetailsComponent
     ],
     imports: [
         CommonModule,

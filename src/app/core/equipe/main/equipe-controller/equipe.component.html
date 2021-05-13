@@ -4,6 +4,7 @@
     <div class="col-3">
       <app-equipe-list
         [utilisateur]="connectedUser"
+        [equipesUtilisateur]=equipesUtilisateur
         (selectEquipe)="onSelectEquipe($event)"
       ></app-equipe-list>
 
@@ -30,30 +31,7 @@
 
     <!-- Partie droite -->
     <div class="col-9">
-      <h1 class="center">{{ equipeSelectionnee?.nom }}</h1>
-      <!-- Joueurs de l'équipe-->
-      <div *ngFor="let membre of membres">
-        <div class="container">
-          <div class="row">
-            <div class="col-4">
-              <app-membre-card [membre]="membre"></app-membre-card>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Fin joueurs -->
-      <!-- Scores de l'équipe -->
-      <div class="row">
-        <div class="center col-6">
-          <p *ngIf="equipeSelectionnee">Nombre de victoires</p>
-          {{ equipeSelectionnee?.nbVictory }}
-        </div>
-        <div class="center col-6">
-          <p *ngIf="equipeSelectionnee">Nombre de défaites</p>
-          {{ equipeSelectionnee?.nbDefeat }}
-        </div>
-      </div>
-      <!-- Fin scores -->
+      <app-equipe-details [equipeSelectionnee]=equipeSelectionnee [membres]=membres></app-equipe-details>
     </div>
     <!-- Fin partie droite -->
   </div>

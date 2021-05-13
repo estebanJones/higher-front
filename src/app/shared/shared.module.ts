@@ -13,13 +13,15 @@ import { LocalStorageService } from './localStorage.service';
 import { ModaleComponent } from './modale/modale.component';
 import { SharedRoutingModule } from './shared-routing.module';
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
     declarations: [
       HeaderComponent,
       DropdownDirective,
-      ModaleComponent
+      ModaleComponent,
+      FooterComponent
     ],
     imports: [
       CommonModule,
@@ -41,7 +43,8 @@ import { CommonModule } from '@angular/common';
     ],
     exports: [
       HeaderComponent,
-      ModaleComponent
+      ModaleComponent,
+      FooterComponent
     ]
   })
   export class SharedModule { }

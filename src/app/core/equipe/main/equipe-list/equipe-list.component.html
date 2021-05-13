@@ -1,4 +1,6 @@
-<h1 class="d-flex justify-content-center">Mes équipes </h1>
+<div class="border">
+<h1 class="d-flex justify-content-center text-center">Mes équipes </h1>
 <div class="d-flex justify-content-center" *ngFor="let equipe of equipesUtilisateur">
 <button class="d-flex justify-content-center btn-team" (click)="onSelectEquipe(equipe?.nom)">{{equipe.nom}}</button>
+</div>
 </div>
