@@ -54,6 +54,7 @@ export class EquipeComponent implements OnInit {
   remplirTableauEquipesJoueur(id: number): void {
     this.equipeService.getEquipesParJoueur(id).subscribe(equipes => {
       this.equipesUtilisateurSubject.next(equipes);
+      this.equipesUtilisateur = equipes;
     });
   }
 
@@ -64,7 +65,7 @@ export class EquipeComponent implements OnInit {
   }
 
   onSelectEquipe(nomEquipe: string): void {
-    this.equipesUtilisateur.forEach((equipe) => {
+    this.equipesUtilisateur.forEach(equipe => {
       if (equipe.nom === nomEquipe) {
         this.equipeSelectionnee = equipe;
         this.getJoueursParEquipe(equipe.id);

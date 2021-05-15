@@ -23,11 +23,9 @@ export class HeaderComponent implements OnInit {
     this.localStorage.controleUserStorage();
     this.authService.userConnectedObs.subscribe(userConnecte => {
       if (!this.authService.controleSiObjectVide(userConnecte)) {
-        console.log("userConnecte ", userConnecte);
         this.connectedUser = userConnecte;
         this.isConnected = true;
       }
-      console.log("IsConnected ", this.isConnected);
     });
   }
 
