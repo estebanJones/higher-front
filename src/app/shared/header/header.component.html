@@ -13,7 +13,7 @@
     <div class="col-5">
       <div id="espacePersonnel">
         <!-- CONDITION SUR UTILISATEUR CONNECTE -->
-        <ng-template [ngIf]="!connectedUser" [ngIfElse]="l">
+        <ng-template [ngIf]="!isConnected" [ngIfElse]="l">
             <a class="nav-link" [routerLink]="['connexion']"><mdb-icon class="pr-1" fas icon="lock"></mdb-icon>Connexion</a>
             <a class="nav-link" [routerLink]="['inscription']"><mdb-icon class="pr-1" fas icon="lock"></mdb-icon>Inscription</a>
         </ng-template>

@@ -17,24 +17,25 @@ export class HeaderComponent implements OnInit {
   connectedUser!: ConnectedUser;
   pseudoUserConnected?: string;
   clickOnProfil = false;
-
-  userObs!: Observable<ConnectedUser>;
   constructor(private authService: AuthService, private localStorage: LocalStorageService, private router: Router) { }
 
   ngOnInit(): void {
     this.localStorage.controleUserStorage();
-    this.userObs =  this.localStorage.getConnectedUser();
-    this.userObs.subscribe((utilisateur: ConnectedUser) => {
-      this.isConnected = true;
-      this.connectedUser = utilisateur;
-      console.log('header isConnected ', this.isConnected);
-      console.log('header connectedUser ', this.connectedUser);
+    this.authService.userConnectedObs.subscribe(userConnecte => {
+      if (!this.authService.controleSiObjectVide(userConnecte)) {
+        console.log("userConnecte ", userConnecte);
+        this.connectedUser = userConnecte;
+        this.isConnected = true;
+      }
+      console.log("IsConnected ", this.isConnected);
     });
   }
 
   logout(): void {
     this.isConnected = false;
     localStorage.clear();
+    this.authService.clear();
     this.router.navigate(['account']);
+
   }
 }

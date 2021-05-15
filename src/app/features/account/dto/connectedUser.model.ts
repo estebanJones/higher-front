@@ -7,7 +7,7 @@ export class ConnectedUser{
 	  nationalite!: string;
     role!: Role[];
   
-    constructor(params: any) {
+    constructor(params?: any) {
       Object.assign(this, params);
     }
   

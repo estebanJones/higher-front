@@ -76,4 +76,8 @@ verifierAuthentification(): void {
   controleSiObjectVide(objectToCheck: any): boolean {
     return Object.entries(objectToCheck).length === 0 ? true : false;
   }
+
+  clear() {
+    this.userConnectedSub.next(new ConnectedUser());
+  }
 }
