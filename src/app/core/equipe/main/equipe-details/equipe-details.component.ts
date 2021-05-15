@@ -17,7 +17,7 @@ export class EquipeDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.isCapitaine)
+    console.log(this.isCapitaine);
   }
 
 

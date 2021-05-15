@@ -74,8 +74,6 @@ export class EquipeComponent implements OnInit {
   }
 
   isCapitaine(equipeSelectionnee: Equipe): boolean {
-    console.log("this.equipeSelectionnee ", equipeSelectionnee.idCapitaine);
-    console.log("this.equipeSelectionnee ", this.connectedUser.id);
     return equipeSelectionnee.idCapitaine === this.connectedUser.id ? true : false;
   }
 

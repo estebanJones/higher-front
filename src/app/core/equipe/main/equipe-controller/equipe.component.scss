@@ -1,10 +1,19 @@
-.center {
-  text-align: center;
+body {
+  height: 100%;
 }
 
-.btn-create-team{
-  background-color: white;
-  width: 100%;
-  font-size: 30px;
-  border: red;
-}
+  .container {
+    margin: 0;
+    height: 27em;
+    
+    .row {
+      height: 100%;
+    }
+    .btn-create-team{
+      background-color: white;
+      width: 100%;
+      font-size: 30px;
+      border: red;
+    }
+  }
+    
