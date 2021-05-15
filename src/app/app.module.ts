@@ -1,4 +1,4 @@
-import { MatSelectCountryModule } from "@angular-material-extensions/select-country";
+import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,6 +14,8 @@ import { ConnectionComponent } from './features/account/connection/connection.co
 import { RegisterComponent } from './features/account/register/register.component';
 import { EmptyPageComponent } from './features/empty-page/empty-page.component';
 import { SharedModule } from './shared/shared.module';
+import { ConnectionFormulaireComponent } from './features/account/connection/connection-formulaire/connection-formulaire.component';
+import { RegisterFormulaireComponent } from './features/account/register/register-formulaire/register-formulaire.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { SharedModule } from './shared/shared.module';
     EmptyPageComponent,
     AccountComponent,
     RegisterComponent,
-    ConnectionComponent
+    ConnectionComponent,
+    ConnectionFormulaireComponent,
+    RegisterFormulaireComponent
   ],
   imports: [
     BrowserModule,

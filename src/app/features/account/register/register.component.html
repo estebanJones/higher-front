@@ -1,36 +1,5 @@
-<!-- Default form login -->
-<form class="text-center border border-light p-5 inscription_formulaire" [formGroup]="registerFormulaire" (ngSubmit)="register()">
-    <p class="h2 mb-4 title">INSCRIPTION</p>
-    <input type="username" class="form-control mb-4" placeholder="Nom d'utilisateur" formControlName="username">
-    <div *ngIf="registerFormulaire.controls['username'].invalid && (registerFormulaire.controls['username'].dirty || registerFormulaire.controls['username'].touched)" class="alert">
-      <div *ngIf="registerFormulaire.controls['username'].errors?.required">
-        Nom d'utilisateur requis
-      </div>
-    </div>
-    <input type="email" class="form-control mb-4" placeholder="E-mail" formControlName="email">
-    <div *ngIf="registerFormulaire.controls['email'].invalid && (registerFormulaire.controls['email'].dirty || registerFormulaire.controls['email'].touched)" class="alert">
-      <div *ngIf="registerFormulaire.controls['email'].errors?.required">
-        Entrez une adresse mail valide
-      </div>
-    </div>
-    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" formControlName="password">
-    <div *ngIf="registerFormulaire.controls['password'].invalid && (registerFormulaire.controls['password'].dirty || registerFormulaire.controls['password'].touched)" class="alert">
-      <div *ngIf="registerFormulaire.controls['password'].errors?.required">
-        Mot de passe requis
-      </div>
-    </div>
-    <div class="container">
-        <mat-select-country label="" placeHolder="Nationalite" appearance="fill" class="counter-selector" formControlName="country">
-        </mat-select-country>
-    </div>
-    <div *ngIf="registerFormulaire.controls['country'].invalid && (registerFormulaire.controls['country'].dirty || registerFormulaire.controls['country'].touched)" class="alert">
-      <div *ngIf="registerFormulaire.controls['country'].errors?.required">
-        Veuillez sélectionner une nationalité
-      </div>
-    </div>
-    <button mdbBtn  class="my-4 connection_button" type="submit">C'est parti !<em class="fas fa-angle-right fa-4x ml-1"></em></button>
-</form>
-
-
+<div class="container pt-5">
+  <app-register-formulaire></app-register-formulaire>
+</div>
 
 

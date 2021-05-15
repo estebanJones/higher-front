@@ -15,26 +15,20 @@ export class EquipeService {
   path = '/equipe';
 
   public equipesParJoueur$: BehaviorSubject<any> = new BehaviorSubject({});
+  
   getEquipesParJoueur(idUtilisateur: number): Observable<Equipe[]> {
     return this.httpService.get<Equipe[]>(this.path + '/liste/' + idUtilisateur);
   }
-  getJoueursParEquipe(idEquipe: number): Observable<Membre[]>{
+  getJoueursParEquipe(idEquipe: number): Observable<Membre[]> {
     return this.httpService.get<Membre[]>(this.path + '/' + idEquipe +  '/membres/');
   }
 
-    creerEquipe(equipe: EquipeACreer): void {
-      this.httpService.post(this.path + '/create', equipe,
-      new HttpHeaders({
-        'Content-Type': 'application/json'
-      })).subscribe(
-        ret => {
-          console.log('Le retour ? ', ret)
-        },
-        err => {
-          console.log('Une erreur ?', err)
-        }
-      );
-    }
+  creerEquipe(equipe: EquipeACreer): Observable<string> {
+    return this.httpService.post(this.path + '/create', equipe,
+    new HttpHeaders({
+      'Content-Type': 'application/json'
+    }));
+  }
 
     inviterMembres() {
       //TODO invitation d'un nouveau membre à une équipe

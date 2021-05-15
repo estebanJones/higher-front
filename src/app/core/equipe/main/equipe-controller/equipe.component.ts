@@ -1,7 +1,9 @@
 import { AfterContentChecked, Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Observable, of } from 'rxjs';
+import { cpuUsage } from 'node:process';
+import { Observable, of, Subject } from 'rxjs';
 import { ConnectedUser } from 'src/app/features/account/dto/connectedUser.model';
+import { AuthService } from 'src/app/features/account/services/auth.service';
 import { LocalStorageService } from '../../../../shared/localStorage.service';
 import { ModaleComponent } from '../../../../shared/modale/modale.component';
 import { Equipe } from '../../core/model/equipe';
@@ -16,43 +18,44 @@ import { EquipeService } from '../../core/services/equipe.service';
 })
 export class EquipeComponent implements OnInit {
   @ViewChild(ModaleComponent) modale!: ModaleComponent;
-  userObs!: Observable<ConnectedUser>;
   connectedUser!: ConnectedUser;
   equipesUtilisateur!: Equipe[];
-  equipesUtilisateurObs!: Observable<Equipe[]>;
-  createEquipeForm!: FormGroup;
+  equipesUtilisateurSubject = new Subject<Equipe[]>();
   nomEquipe!: string;
   equipeACreer: EquipeACreer = new EquipeACreer();
   equipeSelectionnee!: Equipe;
+
+  // PROPS NON UTILISEES
   membres!: Membre[];
   isCapitaine!: boolean;
-  constructor(
-    private localStorage: LocalStorageService,
-    private equipeService: EquipeService
-  ) {}
+  // PROPS NON UTILISEES
 
-  ngOnInit(): void {
-    this.localStorage.controleUserStorage();
-    this.userObs = this.localStorage.getConnectedUser();
-    this.userObs.subscribe((utilisateur: ConnectedUser) => {
-      this.connectedUser = utilisateur;
-    });
-    this.getEquipesParJoueur();
+  constructor(private authService: AuthService, private equipeService: EquipeService) {
+
   }
 
-  getEquipesParJoueur(): void {
-    if (this.connectedUser) {
-      this.equipeService.getEquipesParJoueur(this.connectedUser.id).subscribe(equipes => {
-        this.equipesUtilisateur = equipes;
+  ngOnInit(): void {
+    this.authService.userConnectedObs.subscribe(userDB => {
+      this.remplirTableauEquipesJoueur(userDB.id);
+      this.connectedUser = userDB;
+    });
+  }
+
+  creerEquipe(): void {
+    if (this.connectedUser.id !== undefined) {
+      this.equipeACreer.createurId = this.connectedUser.id;
+      this.equipeService.creerEquipe(this.equipeACreer).subscribe(ret => {
+        this.remplirTableauEquipesJoueur(this.connectedUser.id);
+        this.modale.hide();
       });
     }
   }
 
-  onCreate(): void {
-    this.equipeACreer.createurId = this.connectedUser.id;
-    this.equipeService.creerEquipe(this.equipeACreer);
-    this.modale.hide();
-    }
+  remplirTableauEquipesJoueur(id: number): void {
+    this.equipeService.getEquipesParJoueur(id).subscribe(equipes => {
+      this.equipesUtilisateurSubject.next(equipes);
+    });
+  }
 
   getJoueursParEquipe(idEquipe: number): void {
     this.equipeService.getJoueursParEquipe(idEquipe).subscribe((membres) => {

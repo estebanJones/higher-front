@@ -4,7 +4,7 @@
     <div class="col-3">
       <app-equipe-list
         [utilisateur]="connectedUser"
-        [equipesUtilisateur]=equipesUtilisateur
+        [equipesUtilisateurSubject]="equipesUtilisateurSubject"
         (selectEquipe)="onSelectEquipe($event)"
       ></app-equipe-list>
 
@@ -23,7 +23,7 @@
         </div>
 
         <div slot="footer">
-          <button mdbBtn (click)="onCreate()">Valider</button>
+          <button mdbBtn (click)="creerEquipe()">Valider</button>
         </div>
       </app-modale>
     </div>

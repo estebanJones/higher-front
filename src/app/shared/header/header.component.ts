@@ -25,7 +25,10 @@ export class HeaderComponent implements OnInit {
     this.localStorage.controleUserStorage();
     this.userObs =  this.localStorage.getConnectedUser();
     this.userObs.subscribe((utilisateur: ConnectedUser) => {
+      this.isConnected = true;
       this.connectedUser = utilisateur;
+      console.log('header isConnected ', this.isConnected);
+      console.log('header connectedUser ', this.connectedUser);
     });
   }
 

@@ -14,7 +14,8 @@
       <div id="espacePersonnel">
         <!-- CONDITION SUR UTILISATEUR CONNECTE -->
         <ng-template [ngIf]="!connectedUser" [ngIfElse]="l">
-            <a class="nav-link" [routerLink]="['account']"><mdb-icon class="pr-1" fas icon="lock"></mdb-icon>Connection</a>
+            <a class="nav-link" [routerLink]="['connexion']"><mdb-icon class="pr-1" fas icon="lock"></mdb-icon>Connexion</a>
+            <a class="nav-link" [routerLink]="['inscription']"><mdb-icon class="pr-1" fas icon="lock"></mdb-icon>Inscription</a>
         </ng-template>
         <ng-template #l class="container_connected">
               <div ngbDropdown display="dynamic" class="dropdown" #myDrop="ngbDropdown">

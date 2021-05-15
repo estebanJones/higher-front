@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { AccountComponent } from './features/account/account.component';
+import { ConnectionComponent } from './features/account/connection/connection.component';
+import { RegisterComponent } from './features/account/register/register.component';
 import { EmptyPageComponent } from './features/empty-page/empty-page.component';
 
 
@@ -15,6 +17,14 @@ export const routes: Routes = [
     {
         path: 'account',
         component: AccountComponent,
+    },
+    {
+        path: 'connexion',
+        component: ConnectionComponent,
+    },
+    {
+        path: 'inscription',
+        component: RegisterComponent,
     },
     {
         path: '**',

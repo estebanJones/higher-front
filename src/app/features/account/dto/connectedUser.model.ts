@@ -12,6 +12,6 @@ export class ConnectedUser{
     }
   
     public isConnected(): boolean {
-      return this.email != undefined;
+      return this.email !== undefined;
     }
   }
