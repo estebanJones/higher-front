@@ -1,6 +1,7 @@
 import { ConnectedUser } from '../../../../features/account/dto/connectedUser.model';
 export class Equipe {
   id!: number;
+  idCapitaine!: number;
   nom!: string;
   nbDefeat!: number;
   nbVictory!: number;

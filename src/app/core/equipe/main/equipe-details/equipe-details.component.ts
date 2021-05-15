@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ConnectedUser } from 'src/app/features/account/dto/connectedUser.model';
 import { Equipe } from '../../core/model/equipe';
 import { Membre } from '../../core/model/membre';
 
@@ -10,14 +11,19 @@ import { Membre } from '../../core/model/membre';
 export class EquipeDetailsComponent implements OnInit {
   @Input() equipeSelectionnee!: Equipe;
   @Input() membres!: Membre[];
-  isCapitaine!:boolean;
-  constructor() {}
+  @Input() utilisateur!: ConnectedUser;
+  @Input() isCapitaine!: boolean;
+  constructor() {
+  }
 
   ngOnInit(): void {
-    this.isCapitaine = true;
+    console.log(this.isCapitaine)
   }
+
 
   onInviteMembres(){
 
   }
+
+
 }

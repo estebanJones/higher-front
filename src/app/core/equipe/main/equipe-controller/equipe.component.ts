@@ -24,10 +24,9 @@ export class EquipeComponent implements OnInit {
   nomEquipe!: string;
   equipeACreer: EquipeACreer = new EquipeACreer();
   equipeSelectionnee!: Equipe;
-
+  userCapitaine!: boolean;
   // PROPS NON UTILISEES
   membres!: Membre[];
-  isCapitaine!: boolean;
   // PROPS NON UTILISEES
 
   constructor(private authService: AuthService, private equipeService: EquipeService) {
@@ -69,8 +68,15 @@ export class EquipeComponent implements OnInit {
       if (equipe.nom === nomEquipe) {
         this.equipeSelectionnee = equipe;
         this.getJoueursParEquipe(equipe.id);
+        this.userCapitaine = this.isCapitaine(equipe);
       }
     });
+  }
+
+  isCapitaine(equipeSelectionnee: Equipe): boolean {
+    console.log("this.equipeSelectionnee ", equipeSelectionnee.idCapitaine);
+    console.log("this.equipeSelectionnee ", this.connectedUser.id);
+    return equipeSelectionnee.idCapitaine === this.connectedUser.id ? true : false;
   }
 
   onInviteMembres() {}

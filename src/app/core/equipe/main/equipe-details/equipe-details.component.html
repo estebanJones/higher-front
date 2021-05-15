@@ -4,6 +4,7 @@
   <div class="container">
     <div class="row">
       <div class="col-4">
+        <div *ngIf="isCapitaine"><strong>Capitaine</strong></div>
         <app-membre-card [membre]="membre"></app-membre-card>
       </div>
     </div>

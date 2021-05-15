@@ -31,7 +31,8 @@
 
     <!-- Partie droite -->
     <div class="col-9">
-      <app-equipe-details [equipeSelectionnee]=equipeSelectionnee [membres]=membres></app-equipe-details>
+      <!-- [isCapitaine]="isCapitaine()" -->
+      <app-equipe-details [isCapitaine]="userCapitaine" [equipeSelectionnee]=equipeSelectionnee [membres]=membres></app-equipe-details>
     </div>
     <!-- Fin partie droite -->
   </div>
